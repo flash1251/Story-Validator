@@ -173,7 +173,17 @@ curl -s localhost:26657/status | jq -r '.result.validator_info'
 ```
 - ## Paste HEX Validator Address: D6F92FD7D0460AA9E4CF4D299FE479E93395DCF3 to search on https://testnet.story.explorers.guru/
 
+## Delete node
+`Backup your data, private key, validator key before remove node.`
 
-
-
- 
+```sudo systemctl stop story-geth
+sudo systemctl stop story
+sudo systemctl disable story-geth
+sudo systemctl disable story
+sudo rm /etc/systemd/system/story-geth.service
+sudo rm /etc/systemd/system/story.service
+sudo systemctl daemon-reload
+sudo rm -rf $HOME/.story
+sudo rm $HOME/go/bin/story-geth
+sudo rm $HOME/go/bin/story
+```
